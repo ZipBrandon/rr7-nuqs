@@ -6,6 +6,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { NuqsAdapter } from "nuqs/adapters/react-router/v7";
 
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
@@ -43,7 +44,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (<NuqsAdapter>
+    <Outlet />
+  </NuqsAdapter>);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
